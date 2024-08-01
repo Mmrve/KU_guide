@@ -1,7 +1,15 @@
 {
   "title": "HOŞGELDİNİZ",
   "welcome": "KASTAMONU’YA \n HOŞ GELDİNİZ",
+  "aciklama": "Kastamonu Üniversitesi öğrenci kayıtlarınızı fakültelerinizin öğrenci işlerine giderek  yaptırdıktan sonra size verilen öğrenci belgeleri ve diğer kişisel evraklarınız ile birlikte (pasaport,kimlik vs) il göç idaresinden geçiçi ikametgah için başvuru randevusu alabilirsiniz.Geçici ikametgah iznini aldıktan sonra üniversite yakınlarındaki pansiyon ve apartlarda konaklayabilirsiniz.",
   "info_content": "Bu uygulama siz değerli öğrencilerimizin üniversitemize geldikten sonra yapması gereken ve yapacağı şeyleri kolaylaştırmak adına oluşturulmuştur. Sizler için gerekli adresler, bu adreslerde yapmanız gerekenler ve bu adreslerin konumlarına dair bilgileri bu uygulamada bulabilirsiniz.",
+  "title_kentkart": "Ulaşım",
+  "ulasim1": "Kastamonu Merkez Kent Kart Alım Noktası",
+  "ulasim2": "Kastamonu’da halk otobüsleri ile seyahat etmek için temassız özelliği olan bir kartınız olmalı veya\nkent kart  sahibi olmanız gerekmektedir.Öğrenci kent kartına sahip olmak sizin için daha avantajlıdır çünkü normalden daha ucuza seyahat etmenize olanak sağlar.Kent karta sahip olmak için aşağıdaki iki konumdan size yakın olan konuma giderek öğrenci belgeniz, bir adet son 6 ay içinde çekilmiş vesikalık fotoğraf ve pasaport belgeniz ile başvuru yapıp öğrenci kent kartına sahip olabilirsiniz.",
+  "ulasim3": "Kastamonu Kuzeykent Kent Kart Alım Noktası",
+  "ulasim4":"Kastamonu’da seyahat etmek istediğiniz konumu  daha rahat bulabilmek için aşağıda verilen linklerden isterseniz otobüs hareket saatlerinin olduğu internet sitesine gidebilir istersenizde kent kart mobil uygulamasını indirebilirsiniz.",
+  "ulasim5":"Otubüs Hareket Saatleri İnternet Sitesi",
+  "ulasim6":"Kent Kart Mobil Uygulaması",
   "change_language": "Dil Değiştir",
   "turkish": "Türkçe",
   "english": "English",
@@ -46,5 +54,8 @@
   "doviz1": "DÖVİZ BÜROLARI",
   "doviz2": "KISMET DÖVİZ",
   "doviz3": "GÜROL DÖVİZ",
-  "doviz4": "HAYRİ DARENDE KUYUMCULUK"
+  "doviz4": "HAYRİ DARENDE KUYUMCULUK",
+  "gender": "Kız/Erkek",
+  "man": "Erkek",
+  "woman": "Kız"
 }

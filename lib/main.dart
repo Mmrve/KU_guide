@@ -49,11 +49,16 @@ class _InfoPagesState extends State<InfoPages> {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(LocaleKeys.choice.tr(), textAlign: TextAlign.center, style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+              Text(LocaleKeys.choice.tr(),textAlign: TextAlign.center, style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
                   context.setLocale(Locale('tr', 'TR'));
+                  _pageController.animateToPage(
+                    1,
+                    duration: Duration(milliseconds: 300),
+                    curve: Curves.easeIn,
+                  );
                 },
                 child: Text(LocaleKeys.turkish.tr()),
               ),
@@ -61,6 +66,11 @@ class _InfoPagesState extends State<InfoPages> {
               ElevatedButton(
                 onPressed: () {
                   context.setLocale(Locale('en', 'US'));
+                  _pageController.animateToPage(
+                    1,
+                    duration: Duration(milliseconds: 300),
+                    curve: Curves.easeIn,
+                  );
                 },
                 child: Text(LocaleKeys.english.tr()),
               ),
@@ -68,8 +78,8 @@ class _InfoPagesState extends State<InfoPages> {
           ),
           InfoPage(
             backgroundImage: 'assets/background1.jpg',
-            title: 'title'.tr(),/////bunlar değişmiyor
-            content: '',
+            title: 'welcome'.tr(),
+            content: 'info_content'.tr(),
             onNext: () {
               _pageController.nextPage(
                 duration: const Duration(milliseconds: 300),
@@ -79,8 +89,8 @@ class _InfoPagesState extends State<InfoPages> {
           ),
           InfoPage(
             backgroundImage: 'assets/background1.jpg',
-            title: 'welcome'.tr(),/////bunlar değişmiyor
-            content: 'info_content'.tr(),
+            title: 'title'.tr(),/////bunlar değişmiyor
+            content: 'aciklama'.tr(),
             onNext: () {
               Navigator.pushReplacement(
                 context,
@@ -217,6 +227,16 @@ class HomePage extends StatelessWidget {
                   );
                 },
               ),
+              InfoCard(
+                title: 'title_kentkart'.tr(),
+                image: 'assets/kentKart.png',
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ulasim_page()),
+                  );
+                },
+              ),
             ],
           ),
         ],
@@ -263,6 +283,201 @@ class InfoCard extends StatelessWidget {
     );
   }
 }
+class ulasim_page extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(),
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          Image.asset(
+            'assets/background1.jpg',
+            fit: BoxFit.cover,
+          ),
+          SingleChildScrollView(
+            // Kaydırma özelliğini eklemek için SingleChildScrollView kullanıyoruz
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Container(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: [
+                          const Divider(
+                            color: Colors.black,
+                            thickness: 2,
+                          ),
+                          Text(
+                            'KENTKART',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 27,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              shadows: [
+                                Shadow(
+                                  blurRadius: 1.0,
+                                  color: Colors.black.withOpacity(0.9),
+                                  offset: const Offset(2.0, 2.0),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const Divider(
+                            color: Colors.black,
+                            thickness: 2,
+                          ),
+                        ],
+                      )
+                  ),
+                  const SizedBox(height: 20),
+                  Container(
+                    decoration:
+                    BoxDecoration(color: Colors.black.withOpacity(0.5)),
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text('ulasim2'.tr(),//metin kısmı
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  //ilk yazınnın altındaki linkler
+                  ElevatedButton(
+                    onPressed: () {
+                      launch(//kent kart merkez
+                          'https://www.google.com/maps/dir/41.3794304,33.7739776/41.3767289,33.7775354/@41.3765823,33.7774539,21z/data=!4m5!4m4!1m1!4e1!1m0!3e2?entry=ttu');
+                    },
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(vertical: 2),
+                      backgroundColor: Colors.black.withOpacity(0.5),
+                    ),
+                    child: Column(
+                      children: [
+                        Text('\n'+
+                            'ulasim1'.tr(),
+                          style: TextStyle(fontSize: 16, color: Colors.white),
+                          textAlign: TextAlign.center,
+                        ),
+                        Image.asset(
+                          'assets/http.png',
+                          width: 50,
+                          height: 50,
+                        ),
+                        const SizedBox(height: 5),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  ElevatedButton(
+                    onPressed: () {
+                      launch(//kentkart kuzeykent
+                          'https://www.google.com/maps/place/Kuzeykent+Mahallesi+Muhtarl%C4%B1%C4%9F%C4%B1/@41.4285985,33.7763581,21z/data=!4m6!3m5!1s0x4084fb04a4220637:0x1fc51dafe8a973a6!8m2!3d41.4285922!4d33.7762651!16s%2Fg%2F1tdxjbw6?entry=ttu');
+                    },
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(vertical: 2),
+                      backgroundColor: Colors.black.withOpacity(0.5),
+                    ),
+                    child: Column(
+                      children: [
+                        Text('\n'+
+                            'ulasim3'.tr(),
+                          style: TextStyle(fontSize: 16, color: Colors.white),
+                          textAlign: TextAlign.center,
+                        ),
+                        Image.asset(
+                          'assets/http.png',
+                          width: 50,
+                          height: 50,
+                        ),
+                        const SizedBox(height: 5),
+                      ],
+                    ),
+                  ),
+
+
+
+                  /////ikinci metin kısmının oldupu yer.
+                  const SizedBox(height: 20),
+                  Container(
+                    decoration:
+                    BoxDecoration(color: Colors.black.withOpacity(0.5)),
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text('ulasim4'.tr(),//metin kısmı
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  //ilk yazınnın altındaki linkler
+                  ElevatedButton(
+                    onPressed: () {
+                      launch(///otobüs hareket saatleri
+                          'http://www.kastamonuozelhalkotobusu.com/otobus-hareket-saatleri/');
+                    },
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(vertical: 2),
+                      backgroundColor: Colors.black.withOpacity(0.5),
+                    ),
+                    child: Column(
+                      children: [
+                        Text('\n'+
+                            'ulasim5'.tr(),
+                          style: TextStyle(fontSize: 16, color: Colors.white),
+                          textAlign: TextAlign.center,
+                        ),
+                        Image.asset(
+                          'assets/http.png',
+                          width: 50,
+                          height: 50,
+                        ),
+                        const SizedBox(height: 5),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  ElevatedButton(
+                    onPressed: () {
+                      launch(//
+                          'https://play.google.com/store/apps/details?id=kentkart.mobile.cordova');
+                    },
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(vertical: 2),
+                      backgroundColor: Colors.black.withOpacity(0.5),
+                    ),
+                    child: Column(
+                      children: [
+                        Text('\n'+
+                            'ulasim6'.tr(),
+                          style: TextStyle(fontSize: 16, color: Colors.white),
+                          textAlign: TextAlign.center,
+                        ),
+                        Image.asset(
+                          'assets/http.png',
+                          width: 50,
+                          height: 50,
+                        ),
+                        const SizedBox(height: 5),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 
 ////İL GÖÇ İDARESİ DÜZEN
 class IlGocIdaresiPage extends StatelessWidget {
@@ -270,8 +485,7 @@ class IlGocIdaresiPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('İl Göç İdaresi'),
-
+        //title: const Text('İl Göç İdaresi'), appvbardaki metini yok ettim.
       ),
       body: Stack(
         fit: StackFit.expand,
@@ -398,7 +612,7 @@ class KastUniPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Kastamonu Üniversitesi'),
+        //title: const Text('Kastamonu Üniversitesi'),
       ),
       body: Stack(
         fit: StackFit.expand,
@@ -667,7 +881,7 @@ class KonaklamaPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Konaklama'),
+        //title: const Text('Konaklama'),
       ),
       body: Stack(
         fit: StackFit.expand,
@@ -708,23 +922,23 @@ class KonaklamaPage extends StatelessWidget {
               const SizedBox(height: 16),
               _buildKonaklamaItem(
                 title: 'konaklama2'.tr(),
-                gender: 'KIZ/ERKEK',
+                gender: 'gender'.tr(),
                 url: 'https://www.instagram.com/pattabanoglu_residence/',
               ),
               _buildKonaklamaItem(
                 title: 'konaklama3'.tr(),
-                gender: 'KIZ/ERKEK',
+                gender: 'gender'.tr(),
                 url: 'https://www.facebook.com/Turkelresidence/?locale=tr_TR',
               ),
               _buildKonaklamaItem(
                 title: 'konaklama4'.tr(),
-                gender: 'KIZ',
+                gender: 'woman'.tr(),
                 url:
                     'https://www.google.com/maps/dir//41.4224811,33.7734517/@41.4224534,33.6913075,12z?entry=ttu',
               ),
               _buildKonaklamaItem(
                 title: 'konaklama5'.tr(),
-                gender: 'KIZ',
+                gender: 'woman'.tr(),
                 url:
                     'https://www.instagram.com/elit_apart_?igsh=MTkwc3ZvczB0dmZqZA==',
               ),
@@ -784,7 +998,7 @@ class DovizBurelariPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Döviz Büroları'),
+        //title: const Text('Döviz Büroları'),
       ),
       body: Stack(
         fit: StackFit.expand,
